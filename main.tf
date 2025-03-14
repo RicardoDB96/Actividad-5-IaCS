@@ -3,17 +3,17 @@ provider "aws" {
 }
 
 # Instancia de Linux
-resource "aws_instance" "linux_instance" {
-  ami           = var.linux-ami
-  instance_type = var.linux_instance_type
+resource "aws_instance" "windows_instance" {
+  ami           = var.windows-ami
+  instance_type = var.windows_instance_type
   key_name      = var.key_name
   associate_public_ip_address = true # Forzar asignacion ip publica
 
   tags = {
-    Name = "Linux-Instancia"
+    Name = "Windows-Instancia"
   }
 }
 
-output "linux_ip_publica" {
-  value = aws_instance.linux_instance.public_ip
+output "windows_ip_publica" {
+  value = aws_instance.windows_instance.public_ip
 }
